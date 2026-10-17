@@ -10,3 +10,4 @@ git add .github CN_Upscaler_Android_Studio_Project.zip
 git commit -m "Upload project ZIP and trigger automated APK build"
 git remote add origin https://github.com/YOUR_USERNAME/CN-Upscaler.git
 git push -u origin main
+ 
