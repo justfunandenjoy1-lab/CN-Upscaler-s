@@ -5,7 +5,7 @@ on:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
-  workflow_dispatch: # Allows you to trigger the build manually from GitHub Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,13 +25,15 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: chmod +x ./gradlew
+        working-directory: CN_Upscaler_Android_Studio_Project
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
+        working-directory: CN_Upscaler_Android_Studio_Project
 
       - name: Upload APK as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: CN_Upscaler_Android_Studio_Project/app/build/outputs/apk/debug/*.apk
