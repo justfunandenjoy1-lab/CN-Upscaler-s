@@ -1,0 +1,12 @@
+mkdir cn-upscaler-zip-upload && cd cn-upscaler-zip-upload
+
+# শুধু .github/workflows ফোল্ডারটি বের করে নিন যাতে GitHub Actions চালু হয়
+unzip ../CN_Upscaler_Android_Studio_Project.zip ".github/*"
+cp ../CN_Upscaler_Android_Studio_Project.zip .
+
+git init
+git branch -M main
+git add .github CN_Upscaler_Android_Studio_Project.zip
+git commit -m "Upload project ZIP and trigger automated APK build"
+git remote add origin https://github.com/YOUR_USERNAME/CN-Upscaler.git
+git push -u origin main
